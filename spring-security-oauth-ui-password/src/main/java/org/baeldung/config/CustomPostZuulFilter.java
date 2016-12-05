@@ -31,8 +31,7 @@ public class CustomPostZuulFilter extends ZuulFilter {
             final InputStream is = ctx.getResponseDataStream();
             String responseBody = IOUtils.toString(is, "UTF-8");
             if (responseBody.contains("refresh_token")) {
-                final Map<String, Object> responseMap = mapper.readValue(responseBody, new TypeReference<Map<String, Object>>() {
-                });
+                final Map<String, Object> responseMap = mapper.readValue(responseBody, new TypeReference<Map<String, Object>>() {});
                 final String refreshToken = responseMap.get("refresh_token").toString();
                 responseMap.remove("refresh_token");
                 responseBody = mapper.writeValueAsString(responseMap);

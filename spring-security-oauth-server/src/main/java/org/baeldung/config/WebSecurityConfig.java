@@ -14,8 +14,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void globalUserDetails(final AuthenticationManagerBuilder auth) throws Exception {
         // @formatter:off
-		auth.inMemoryAuthentication().withUser("john").password("123").roles("USER").and().withUser("tom")
-				.password("111").roles("ADMIN");
+		auth.inMemoryAuthentication().withUser("user").password("123456").roles("USER").and().withUser("admin")
+				.password("admin").roles("ADMIN");
 		// @formatter:on
     }
 
